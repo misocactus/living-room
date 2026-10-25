@@ -1,0 +1,23 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Living Room</title>
+<style>html,body{margin:0;height:100%;background:#080a0d;color:#fff;
+ font:20px -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
+ #s{height:100%;display:flex;align-items:center;justify-content:center;text-align:center;padding:0 60px;line-height:1.5}
+ small{opacity:.5;font-size:15px}</style>
+<div id="s">loading launcher…</div>
+<script>
+  var APP = 'http://192.168.86.123:8124/index.html';
+  var t = setTimeout(function () {
+    document.getElementById('s').innerHTML = 'Cannot reach the Pi at ' + APP +
+      '<br><br><small>Check 192.168.86.123 is up and the launcher service is running.</small>';
+  }, 4000);
+  fetch(APP, { cache: 'no-store' }).then(function (r) {
+    if (!r.ok) throw new Error('http ' + r.status);
+    clearTimeout(t); location.replace(APP);
+  }).catch(function (e) {
+    clearTimeout(t);
+    document.getElementById('s').innerHTML = 'Cannot reach the Pi.<br><br><small>' +
+      APP + ' · ' + e.message + '</small>';
+  });
+</script>

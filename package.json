@@ -1,0 +1,11 @@
+{
+  "name": "living-room",
+  "appName": "Living Room",
+  "version": "0.3.0",
+  "description": "Bootstrap stub: loads the launcher from the local Pi so updates need no CDN round trip.",
+  "packageType": "app",
+  "appPath": "index.html",
+  "keys": ["MediaPlayPause","MediaPlay","MediaPause","MediaStop","MediaFastForward","MediaRewind"],
+  "author": "Ben Listokin",
+  "license": "MIT"
+}
